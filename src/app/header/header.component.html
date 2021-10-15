@@ -16,7 +16,10 @@
       </ul>
       <ul class="header-links pull-right">
         <li>
-          <a href="#"><i class="fa fa-dollar"></i> USD</a>
+          <a data-toggle="modal" (click)="login=true" data-target="#myModal"><i class="fa fa-user"></i>Login</a>
+        </li>
+        <li>
+          <a data-toggle="modal" (click)="login=false" data-target="#myModal"><i class="fa fa-user"></i>Sign Up</a>
         </li>
         <li>
           <a href="#"><i class="fa fa-user-o"></i> My Account</a>
@@ -147,3 +150,32 @@
 
   <!-- /MAIN HEADER -->
 </header>
+
+
+<div class="container">
+  <!-- Button to Open the Modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Open modal
+  </button> -->
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"*ngIf="login">Login Modal</h4>
+          <h4 class="modal-title"*ngIf="!login">Sign up Modal</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <app-login [login]='login'></app-login>    
+        <!-- Modal footer -->
+                 
+      </div>
+    </div>
+  </div>
+  
+</div>
