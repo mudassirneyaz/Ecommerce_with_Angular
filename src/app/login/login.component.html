@@ -23,17 +23,31 @@
 
           <div *ngIf="!login" class="container">
       
-            <label for="uname"><b>email</b></label>
+            <label  for="uname"><b>email</b></label>
             <input
               type="email"
               placeholder="Enter Username"
               name="uname"
+              [(ngModel)]="email"
               required
             />
-  
-          
-  
-            <button type="submit">Signup</button>
-      
+            <label for="uname"><b>password</b></label>
+            <input
+              type="text"
+              placeholder="Enter password"
+              name="password"
+              [(ngModel)]="password"
+              required
+            />
+            <label for="uname"><b>name</b></label>
+            <input
+              type="text"
+              placeholder="Enter name"
+              name="name"
+              [(ngModel)]="name"
+              required
+            />
+            <button (click)="signupUser()">Signup</button>
+            <button (click)="showtost()">Showtost</button>
           </div>
   </form>
