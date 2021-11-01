@@ -16,13 +16,16 @@
       </ul>
       <ul class="header-links pull-right">
         <li>
-          <a data-toggle="modal" (click)="login=true" data-target="#myModal"><i class="fa fa-user"></i>Login</a>
+          <a data-toggle="modal" *ngIf="!getToken" (click)="login=true" data-target="#myModal"><i class="fa fa-user"></i>Login</a>
         </li>
         <li>
-          <a data-toggle="modal" (click)="login=false" data-target="#myModal"><i class="fa fa-user"></i>Sign Up</a>
+          <a data-toggle="modal" *ngIf="!getToken" (click)="login=false" data-target="#myModal"><i class="fa fa-user"></i>Sign Up</a>
         </li>
         <li>
-          <a href="#"><i class="fa fa-user-o"></i> My Account</a>
+          <a *ngIf="getToken" ><i class="fa fa-user-o"></i> My Account</a>
+        </li>
+        <li>
+          <a *ngIf="getToken" (click)="logout()"><i class="fa fa-user-o"></i> Logout</a>
         </li>
       </ul>
     </div>

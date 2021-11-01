@@ -1,11 +1,12 @@
 <form>
     <div *ngIf="login" class="container">
       
-            <label for="uname"><b>Username</b></label>
+            <label for="uname"><b>Email</b></label>
             <input
-              type="text"
+              type="email"
               placeholder="Enter Username"
-              name="uname"
+              name="email"
+              [(ngModel)]="email"
               required
             />
   
@@ -13,11 +14,12 @@
             <input
               type="password"
               placeholder="Enter Password"
-              name="psw"
+              name="password"
+              [(ngModel)]="password"
               required
             />
   
-            <button type="submit">Login</button>
+            <button (click)='signIn()'>Login</button>
       
           </div>
 
@@ -33,7 +35,7 @@
             />
             <label for="uname"><b>password</b></label>
             <input
-              type="text"
+              type="password"
               placeholder="Enter password"
               name="password"
               [(ngModel)]="password"
@@ -47,7 +49,16 @@
               [(ngModel)]="name"
               required
             />
+
+            <label for="uname"><b>phone</b></label>
+            <input
+              type="number"
+              placeholder="Enter phone"
+              name="phone"
+              [(ngModel)]="phone"
+              required
+            />
             <button (click)="signupUser()">Signup</button>
-            <button (click)="showtost()">Showtost</button>
+          
           </div>
   </form>
