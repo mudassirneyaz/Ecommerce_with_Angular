@@ -170,11 +170,10 @@
         <div class="modal-header">
           <h4 class="modal-title"*ngIf="login">Login Modal</h4>
           <h4 class="modal-title"*ngIf="!login">Sign up Modal</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" id="modal-close" class="close" data-dismiss="modal">&times;</button>
         </div>
-        
         <!-- Modal body -->
-        <app-login [login]='login'></app-login>    
+        <app-login [login]='login'></app-login>
         <!-- Modal footer -->
                  
       </div>

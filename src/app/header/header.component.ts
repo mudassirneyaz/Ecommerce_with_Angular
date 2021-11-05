@@ -5,8 +5,10 @@ import { AuthService } from '../auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit  {
   login: boolean = false;
+  loginStatus: boolean = true;
+  signUpStatus: boolean  = true;
   isSession = this.auth.loggedInUserToken ? true:false;
   constructor(
     private auth: AuthService,
@@ -27,5 +29,18 @@ export class HeaderComponent implements OnInit {
   {
     return this.auth.loggedInUserToken;
   }
+// value:any
+  // sendData(value:any){
+  //   this.value = value;
+  // }
+  didLogin: boolean = false;
+  value:any;
+isLoggedIn()
+{
+  this.auth.activated.subscribe((value)=>{
+    this.value= this.didLogin
+  })
+}
+
 
 }

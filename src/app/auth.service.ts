@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -48,4 +49,5 @@ logoutUser() {
   this.loggedTokenSubject.next(null);
   this.router.navigate(['/']);
 }
+activated= new EventEmitter<boolean>();
 }

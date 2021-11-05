@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
+
+declare var $:any;
+
 
 @Component({
   selector: 'app-login',
@@ -15,15 +18,18 @@ name: any;
 phone: any;
 
 @Input() login=true;
+
+
   constructor(
     private service : ProductService,
     private toastr : ToastrService,
     private auth : AuthService,
+
   ) { }
 
   ngOnInit(): void {
   }
-  
+
   signupUser()
   {
     const payload = {
@@ -35,8 +41,11 @@ phone: any;
     this.service.signup(payload).subscribe((resp)=>
     {
       this.toastr.success('Signed Up successfully');
+
+      
     })
   }
+
 signIn(){
   const payload = {
     email: this.email,
@@ -46,6 +55,7 @@ signIn(){
   {
     console.log("Logged in Successfully");
     this.toastr.success('Logged in Successfully');
+    $('#myModal').modal('hide');
   })
 
 }

@@ -94,4 +94,8 @@ productDescDate =
   {
     return this.http.post(this.baseUrl+'/signup',json)
   }
+
+  fetchProfile(id: number){
+    return this.http.get(this.baseUrl+'/getUser/'+id)
+  }
 }
